@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - ERP Empresa</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Formulário de Login -->
+      <div class="login-box">
+        <h2>Laços & Papel</h2>
+        <h2>Login</h2>
+        <form id="loginForm" method="post" action="login.php">
+          <div class="input-container">
+            <label for="login">Usuário:</label>
+            <input
+              type="text"
+              id="login"
+              name="login"
+              placeholder="Digite seu usuário"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <label for="senha">Senha:</label>
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              placeholder="Digite sua senha"
+              required
+            />
+          </div>
+          <button type="submit" class="login-button">Entrar</button>
+        </form>
+        <div class="error-message" id="error-message"></div>
+      </div>
+    </div>
+  </body>
+</html>
