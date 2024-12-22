@@ -4,7 +4,7 @@ session_start();
 // Verifica se o usuário está logado
 if (!isset($_SESSION['usuario_logado'])) {
     // Redireciona para a página de login
-    header("Location: /erp/pages/login/login.html");
+    header("Location: /erp/pages/login/login.php");
     exit();
 }
 
@@ -17,7 +17,7 @@ if (isset($_GET['logout'])) {
     session_destroy();
     
     // Redireciona para a página de login
-    header("Location: /erp/pages/login/login.html");
+    header("Location: /erp/pages/login/login.php");
     exit();
 }
 ?>
