@@ -137,7 +137,15 @@ section {
 
 /* Botão de sair ============================================================ */
 .logout-container {
+  position: absolute;
+  bottom: 15px;
+  left: 80px;
   text-align: center;
+  width: 45px;
+}
+
+.logout-container a:hover {
+  background-color: var(--primary-color);
 }
 
 /* Imagem de saída */
