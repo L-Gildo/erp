@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+// Definir o fuso horário correto
+date_default_timezone_set('America/Sao_Paulo');
+
 // Conexão com o banco de dados
 $host = "localhost";
 $user = "root";
@@ -33,6 +36,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['usuario_logado'] = $usuario['id'];
             $_SESSION['usuario_nome'] = $usuario['nome'];
             $_SESSION['data_hora_login'] = date("d/m/Y H:i:s"); // Salva data e hora do login
+
+            // Registrar login no banco de dados
+            $usuario_id = $usuario['id'];
+            $tipo_acao = 'login';
+            $sql = "INSERT INTO log_usuarios (usuario_id, tipo_acao) VALUES (?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("is", $usuario_id, $tipo_acao);
+            $stmt->execute();
+
             header("Location: /erp/dashboard.php");
             exit();
         } else {

@@ -184,3 +184,57 @@ section {
   margin-right: 10px; /* Espaço entre o ícone e o texto */
 }
 /* ================================================================== */
+
+/* Estilo do balão de boas-vindas */
+#welcome-balloon {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  border-radius: 5px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transform: translate(-50%, -50%); /* Centraliza o balão */
+  transition: all 0.3s ease-in-out;
+}
+
+#welcome-balloon p {
+  margin: 5px 0;
+}
+
+#close-balloon {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Estilo para a mensagem após fechar o balão */
+.welcome-info {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  z-index: 1000;
+}
+
+/* Responsividade para telas pequenas (mobile) */
+@media (max-width: 768px) {
+  .welcome-info {
+    width: 50%;
+    left: 40%; /* Centraliza a mensagem */
+    right: auto; /* Remove a margem direita */
+  }
+}
