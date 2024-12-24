@@ -69,7 +69,7 @@ $conn->close();
 <body>
     <div class="container">
         <div class="login-box">
-            <h2>Laços & Papel</h2>
+            <h2>Laços & Papeis</h2>
             <h2>Login</h2>
             <form method="post" action="">
                 <div class="input-container">
@@ -103,6 +103,10 @@ $conn->close();
             <?php endif; ?>
         </div>
     </div>
+      <!-- Rodapé -->
+      <footer class="footer">
+        <p>&copy; <?php echo date("Y"); ?> Sistema ERP Laços & Papel - Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
 
