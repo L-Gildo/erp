@@ -4,17 +4,50 @@ include('db.php'); // Inclui a conexão com o banco de dados
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['usuario_logado'])) {
-// Redireciona para a página de login se o usuário não estiver logado
-header("Location: /erp/pages/login/login.php");
-exit();
+    // Redireciona para a página de login se o usuário não estiver logado
+    header("Location: /erp/pages/login/login.php");
+    exit();
 }
 
-// Consulta para buscar os logs de login e logout
+// Verifica se há filtro por data e por usuário
+$filtroData = isset($_POST['data_filtro']) ? $_POST['data_filtro'] : null;
+$filtroUsuario = isset($_POST['usuario_filtro']) ? $_POST['usuario_filtro'] : null;
+
+// Consulta SQL inicial
 $sql = "SELECT u.nome, l.tipo_acao, l.data_hora 
         FROM log_usuarios l
-        JOIN usuarios u ON l.usuario_id = u.id
-        ORDER BY l.data_hora DESC";
-$result = $conn->query($sql);
+        JOIN usuarios u ON l.usuario_id = u.id";
+
+// Adiciona filtros, se aplicáveis
+$parametros = [];
+if ($filtroData) {
+    $sql .= " WHERE DATE(l.data_hora) = ?";
+    $parametros[] = $filtroData;
+}
+if ($filtroUsuario) {
+    if (count($parametros) > 0) {
+        $sql .= " AND l.usuario_id = ?";
+    } else {
+        $sql .= " WHERE l.usuario_id = ?";
+    }
+    $parametros[] = $filtroUsuario;
+}
+
+// Ordena os resultados
+$sql .= " ORDER BY l.data_hora DESC";
+
+// Prepara e executa a consulta
+$stmt = $conn->prepare($sql);
+if (!empty($parametros)) {
+    // Bind dos parâmetros (data e/ou usuário)
+    $stmt->bind_param(str_repeat('s', count($parametros)), ...$parametros);
+}
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Consulta para pegar a lista de usuários
+$sqlUsuarios = "SELECT id, nome FROM usuarios";
+$resultUsuarios = $conn->query($sqlUsuarios);
 
 ?>
 
@@ -24,70 +57,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logs de Ações dos Usuários</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
-        @media (max-width: 768px) {
-            table {
-                font-size: 14px;
-            }
-
-            th, td {
-                padding: 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/erp/styles/style_visualizar_logs.css" />
 </head>
 <body>
 
@@ -97,7 +67,25 @@ $result = $conn->query($sql);
 
 <div class="container">
     <h2>Relatório de Acessos</h2>
-    
+
+    <!-- Formulário de Filtro -->
+    <form method="post" action="">
+        <label for="data_filtro">Filtrar por data:</label>
+        <input type="date" id="data_filtro" name="data_filtro" value="<?php echo htmlspecialchars($filtroData); ?>">
+
+        <label for="usuario_filtro">Filtrar por usuário:</label>
+        <select id="usuario_filtro" name="usuario_filtro">
+            <option value="">Todos os usuários</option>
+            <?php while ($usuario = $resultUsuarios->fetch_assoc()): ?>
+                <option value="<?php echo $usuario['id']; ?>" <?php echo $filtroUsuario == $usuario['id'] ? 'selected' : ''; ?>>
+                    <?php echo htmlspecialchars($usuario['nome']); ?>
+                </option>
+            <?php endwhile; ?>
+        </select>
+
+        <button type="submit">Filtrar</button>
+    </form>
+
     <?php if ($result->num_rows > 0): ?>
         <table>
             <thead>
@@ -110,15 +98,15 @@ $result = $conn->query($sql);
             <tbody>
                 <?php while ($row = $result->fetch_assoc()): ?>
                     <tr>
-                        <td><?php echo $row['nome']; ?></td>
-                        <td><?php echo ucfirst($row['tipo_acao']); ?></td>
+                        <td><?php echo htmlspecialchars($row['nome']); ?></td>
+                        <td><?php echo ucfirst(htmlspecialchars($row['tipo_acao'])); ?></td>
                         <td><?php echo date('d/m/Y H:i:s', strtotime($row['data_hora'])); ?></td>
                     </tr>
                 <?php endwhile; ?>
             </tbody>
         </table>
     <?php else: ?>
-        <p>Não há registros de login/logout.</p>
+        <p>Não há registros de login/logout para os filtros selecionados.</p>
     <?php endif; ?>
 </div>
 
@@ -128,3 +116,4 @@ $result = $conn->query($sql);
 
 </body>
 </html>
+

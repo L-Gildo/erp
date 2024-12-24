@@ -49,8 +49,6 @@ $nome_usuario = $_SESSION['usuario_nome'];
 $data_hora_login = $_SESSION['data_hora_login'];
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -58,6 +56,7 @@ $data_hora_login = $_SESSION['data_hora_login'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ERP Laços & Papel</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/quadroCadastro.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -134,13 +133,41 @@ $data_hora_login = $_SESSION['data_hora_login'];
         </section>
       </main>
     </div>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
+    <script src="scripts/scriptCadastro.js"></script>
+    <!-- Scripts -->
+     
     <div id="notification-panel" class="notification-panel">
       <p>
         <strong>Atenção!</strong> O sistema foi atualizado para a versão 2.1.
       </p>
       <button id="close-notification">X</button>
     </div>
+
+    <!-- Quadro Flutuante com os Subitens do Menu Cadastro -->
+      <div id="cadastroModal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <span id="closeModal" class="closeCadastro">&times;</span>
+          <h2>Menu Cadastro</h2>
+          <div class="card-container">
+            <div class="card">
+              <h3>Usuários</h3>
+              <p>Gerencie seus usuários.</p>
+            </div>
+            <div class="card">
+              <h3>Colaboradores</h3>
+              <p>Informações dos colaboradores.</p>
+            </div>
+            <div class="card">
+              <h3>Clientes</h3>
+              <p>Dados de clientes registrados.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     <script>
         // Fechar balão de boas-vindas ao clicar no botão OK

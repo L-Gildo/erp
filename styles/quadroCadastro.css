@@ -1,0 +1,83 @@
+.modal {
+  position: fixed;
+  top: 45%;
+  left: 57%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 1000;
+  padding: 20px;
+  width: 60%;
+  max-width: 800px; /* Limita o tamanho máximo */
+  min-width: 300px; /* Define um tamanho mínimo */
+}
+
+.modal-content {
+  position: relative;
+}
+
+.closeCadastro {
+  color: rgb(169, 1, 1);
+  border: darkgray solid 1px;
+  width: 20px;
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.card-container {
+  display: flex;
+  gap: 15px;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Permite que os cards se ajustem em telas menores */
+  margin-top: 20px;
+}
+
+.card {
+  background: #f4f4f4;
+  border-radius: 8px;
+  padding: 15px;
+  width: 30%;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  background: #e6e6e6;
+  transform: scale(1.05); /* Aumenta levemente o tamanho ao passar o mouse */
+  cursor: pointer;
+}
+
+/* Responsividade para telas menores que 768px */
+@media (max-width: 768px) {
+  .modal {
+    width: 80%;
+    padding: 15px;
+  }
+
+  .card {
+    width: 45%; /* Os cards ocupam mais espaço em telas menores */
+  }
+}
+
+/* Responsividade para telas menores que 480px */
+@media (max-width: 480px) {
+  .modal {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .card {
+    width: 100%; /* Os cards ocupam 100% da largura em telas muito pequenas */
+    margin-bottom: 10px;
+  }
+
+  .closeCadastro {
+    font-size: 20px; /* Reduz o tamanho do botão de fechar */
+  }
+}
