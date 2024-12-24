@@ -3,11 +3,11 @@ session_start();
 include('db.php'); // Inclui a conexão com o banco de dados
 
 // Verifica se o usuário está logado
-// if (!isset($_SESSION['usuario_logado'])) {
-    // Redireciona para a página de login se o usuário não estiver logado
-    // header("Location: /erp/pages/login/login.php");
-   // exit();
-// }
+if (!isset($_SESSION['usuario_logado'])) {
+// Redireciona para a página de login se o usuário não estiver logado
+header("Location: /erp/pages/login/login.php");
+exit();
+}
 
 // Consulta para buscar os logs de login e logout
 $sql = "SELECT u.nome, l.tipo_acao, l.data_hora 

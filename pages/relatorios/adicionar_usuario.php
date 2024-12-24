@@ -1,4 +1,12 @@
 <?php
+session_start();
+// Verifica se o usuário está logado
+if (!isset($_SESSION['usuario_logado'])) {
+    // Redireciona para a página de login se o usuário não estiver logado
+    header("Location: /erp/pages/login/login.php");
+    exit();
+    }
+
 // Configurações do banco de dados
 $host = "localhost"; 
 $user = "root"; 
@@ -49,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -101,7 +110,14 @@ $conn->close();
             <button type="submit" class="btn-submit">Adicionar Usuário</button>
         </form>
     </div>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; <?php echo date("Y"); ?> Sistema ERP Laços & Papel - Todos os direitos reservados.</p>
+    </footer>
+
 </body>
 </html>
+
 
 
