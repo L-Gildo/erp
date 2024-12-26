@@ -113,7 +113,7 @@ $data_hora_login = $_SESSION['data_hora_login'];
     <!-- Conteúdo Principal -->
     <main class="main-content">
       <header>
-        <h1>Sistema Gerencial - Laços & Papeis</h1>
+        <h1>Sistema Gerencial - Laços & Papéis</h1>
       </header>
       <section id="boas-vindas">
         <h2>Bem-vindo ao ERP da Empresa Laços & Papel!</h2>
@@ -184,6 +184,10 @@ $data_hora_login = $_SESSION['data_hora_login'];
         <a href="festa.html" class="card">
           <h3>Festa</h3>
           <p>Organize os eventos e festas.</p>
+        </a>
+        <a href="festa.html" class="card">
+          <h3>Contratos</h3>
+          <p>Gerencie suas aplicações e contratos.</p>
         </a>
       </div>
     </div>

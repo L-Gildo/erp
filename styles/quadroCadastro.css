@@ -110,3 +110,17 @@
     overflow-y: auto; /* Habilita a rolagem vertical */
   }
 }
+
+@media (min-width: 768px) and (max-width: 950px) {
+  /* Estilos para telas entre 768px e 950px */
+  .modal-content {
+    max-height: 80vh; /* Limita a altura do modal a 50% da altura da tela */
+    overflow-y: auto; /* Habilita a rolagem vertical */
+  }
+
+  .card-container {
+    gap: 10px; /* Ajusta o espaço entre os cards */
+    width: 90%;
+    padding: 10px;
+  }
+}
