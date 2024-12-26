@@ -108,3 +108,90 @@ body {
   font-size: 12px;
   border-top: 1px solid #ccc;
 }
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+  /* Ajusta a posição da caixa de login */
+  .container {
+    position: absolute;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-box {
+    padding: 20px;
+    max-width: 320px;
+  }
+
+  .login-box h2 {
+    font-size: 24px;
+  }
+
+  .login-button {
+    width: 80%;
+  }
+
+  .input-container input {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajustes para telas muito pequenas */
+  .login-box {
+    padding: 15px;
+    max-width: 280px;
+  }
+
+  .login-box h2 {
+    font-size: 20px;
+  }
+
+  .login-button {
+    width: 70%;
+  }
+
+  .input-container input {
+    font-size: 14px;
+  }
+
+  .footer {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  /* Ajusta a posição da caixa de login */
+  .container {
+    position: absolute;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-box {
+    padding: 20px;
+    max-width: 320px;
+  }
+
+  .login-box h2 {
+    font-size: 24px;
+  }
+
+  .login-button {
+    width: 80%;
+  }
+
+  .input-container input {
+    font-size: 14px;
+  }
+}

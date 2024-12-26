@@ -189,6 +189,10 @@ $data_hora_login = $_SESSION['data_hora_login'];
           <h3>Contratos</h3>
           <p>Gerencie suas aplicações e contratos.</p>
         </a>
+        <a href="festa.html" class="card">
+          <h3>Compras</h3>
+          <p>Controle seu estoque e gerencie o material.</p>
+        </a>
       </div>
     </div>
   </div>
