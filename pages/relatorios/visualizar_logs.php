@@ -141,7 +141,7 @@ if (isset($_POST['exportar_pdf'])) {
     </div>
 
     <div class="footer">
-        <p>&copy; <?php echo date('Y'); ?> Sistema ERP Laços & Papel. Todos os direitos reservados.</p>
+        <p>&copy; <?php echo date('Y'); ?> Sistema ERP Laços & Papeis. Todos os direitos reservados.</p>
     </div>
 
 </body>

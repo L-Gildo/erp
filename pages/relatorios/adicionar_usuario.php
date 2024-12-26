@@ -117,7 +117,7 @@ $conn->close();
 
     <!-- Rodapé -->
     <footer class="footer">
-        <p>&copy; <?php echo date("Y"); ?> Sistema ERP Laços & Papel - Todos os direitos reservados.</p>
+        <p>&copy; <?php echo date("Y"); ?> Sistema ERP Laços & Papeis - Todos os direitos reservados.</p>
     </footer>
 
 </body>

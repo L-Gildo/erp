@@ -60,12 +60,14 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - ERP Empresa</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <div class="login-box">
@@ -74,43 +76,27 @@ $conn->close();
             <form method="post" action="">
                 <div class="input-container">
                     <label for="login">Usuário:</label>
-                    <input
-                        type="text"
-                        id="login"
-                        name="login"
-                        placeholder="Digite seu usuário"
-                        required
-                    />
+                    <input type="text" id="login" name="login" placeholder="Digite seu usuário" required />
                 </div>
                 <div class="input-container">
                     <label for="senha">Senha:</label>
-                    <input
-                        type="password"
-                        id="senha"
-                        name="senha"
-                        placeholder="Digite sua senha"
-                        required
-                    />
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
                 </div>
                 <button type="submit" class="login-button">Entrar</button>
             </form>
 
             <!-- Exibir mensagem de erro -->
             <?php if (!empty($error_message)): ?>
-            <div class="error-message">
-                <?php echo htmlspecialchars($error_message); ?>
-            </div>
+                <div class="error-message">
+                    <?php echo htmlspecialchars($error_message); ?>
+                </div>
             <?php endif; ?>
         </div>
     </div>
-      <!-- Rodapé -->
-      <footer class="footer">
-        <p>&copy; <?php echo date("Y"); ?> Sistema ERP Laços & Papel - Todos os direitos reservados.</p>
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; <?php echo date("Y"); ?> Sistema ERP Laços & Papeis - Todos os direitos reservados.</p>
     </footer>
 </body>
+
 </html>
-
-
-
-
-
