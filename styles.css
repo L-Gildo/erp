@@ -68,7 +68,9 @@ body {
 }
 
 .sidebar a:hover {
+  width: 220px;
   background-color: #3e8e41;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .toggle-menu {
@@ -130,6 +132,13 @@ section {
 /* Estilo do contêiner do botão de sair */
 .logout-container {
   width: calc(100% - 40px); /* Garantir alinhamento responsivo */
+}
+
+.logout-container a:hover {
+  border-radius: 50%;
+  width: 45px;
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
 }
 
 .sidebar.collapsed .logout-container {

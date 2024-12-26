@@ -49,33 +49,6 @@ $result = $stmt->get_result();
 $sqlUsuarios = "SELECT id, nome FROM usuarios";
 $resultUsuarios = $conn->query($sqlUsuarios);
 
-// Função para exportar PDF
-if (isset($_POST['exportar_pdf'])) {
-    // Instancia o objeto FPDF
-    $pdf = new FPDF();
-    $pdf->AddPage();
-    $pdf->SetFont('Arial', 'B', 12);
-
-    // Título
-    $pdf->Cell(200, 10, 'Relatório de Logs de Ações dos Usuários', 0, 1, 'C');
-    $pdf->Ln(10);
-
-    // Cabeçalho da tabela
-    $pdf->Cell(50, 10, 'Usuário', 1, 0, 'C');
-    $pdf->Cell(50, 10, 'Ação', 1, 0, 'C');
-    $pdf->Cell(60, 10, 'Data e Hora', 1, 1, 'C');
-
-    // Dados da tabela
-    while ($row = $result->fetch_assoc()) {
-        $pdf->Cell(50, 10, htmlspecialchars($row['nome']), 1, 0, 'C');
-        $pdf->Cell(50, 10, ucfirst(htmlspecialchars($row['tipo_acao'])), 1, 0, 'C');
-        $pdf->Cell(60, 10, date('d/m/Y H:i:s', strtotime($row['data_hora'])), 1, 1, 'C');
-    }
-
-    // Gera o PDF
-    $pdf->Output('D', 'relatorio_logs.pdf');
-    exit();
-}
 ?>
 
 <!DOCTYPE html>

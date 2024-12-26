@@ -55,7 +55,7 @@ $data_hora_login = $_SESSION['data_hora_login'];
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ERP Laços & Papel</title>
+  <title>ERP Laços & Papéis</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="styles/quadroCadastro.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -116,7 +116,7 @@ $data_hora_login = $_SESSION['data_hora_login'];
         <h1>Sistema Gerencial - Laços & Papéis</h1>
       </header>
       <section id="boas-vindas">
-        <h2>Bem-vindo ao ERP da Empresa Laços & Papel!</h2>
+        <h2>Bem-vindo ao ERP da Empresa Laços & Papéis!</h2>
         <p>Última atualização: 19 de dezembro de 2024</p>
         <p>Confira suas opções abaixo para gerenciar seus processos.</p>
         <div class="quick-links">
