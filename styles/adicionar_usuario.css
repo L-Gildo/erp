@@ -18,6 +18,13 @@ body {
   height: 100vh;
 }
 
+.icon-voltar img {
+  width: 50px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
 .form-container {
   position: absolute;
   right: 100px;
@@ -112,5 +119,8 @@ body {
 @media (max-width: 600px) {
   .form-container {
     padding: 15px;
+    position: absolute;
+    right: auto;
+    left: auto;
   }
 }

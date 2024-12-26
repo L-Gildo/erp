@@ -1,14 +1,14 @@
 .modal {
   position: fixed;
-  top: 45%;
-  left: 57%;
+  top: 50%; /* Centraliza verticalmente */
+  left: 50%; /* Centraliza horizontalmente */
   transform: translate(-50%, -50%);
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   z-index: 1000;
   padding: 20px;
-  width: 60%;
+  width: 90%; /* Reduz a largura para telas pequenas */
   max-width: 800px; /* Limita o tamanho máximo */
   min-width: 300px; /* Define um tamanho mínimo */
 }
@@ -31,7 +31,7 @@
 .card-container {
   display: flex;
   gap: 15px;
-  justify-content: space-around;
+  justify-content: center; /* Centraliza os cards */
   flex-wrap: wrap; /* Permite que os cards se ajustem em telas menores */
   margin-top: 20px;
 }
@@ -40,10 +40,13 @@
   background: #f4f4f4;
   border-radius: 8px;
   padding: 15px;
-  width: 30%;
+  width: calc(30% - 10px); /* Calcula largura com espaçamento */
+  max-width: 250px; /* Limita o tamanho dos cards */
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  color: black;
 }
 
 .card:hover {
@@ -52,31 +55,58 @@
   cursor: pointer;
 }
 
-/* Responsividade para telas menores que 768px */
-@media (max-width: 768px) {
+/* Estilos para telas menores */
+@media (max-width: 767px) {
   .modal {
-    width: 80%;
-    padding: 15px;
+    width: 90%; /* Ocupa a maior parte da tela */
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 15px; /* Reduz padding para telas menores */
   }
 
   .card {
-    width: 45%; /* Os cards ocupam mais espaço em telas menores */
+    width: 100%; /* Ajusta largura dos cards */
+    max-width: none; /* Remove limite para telas pequenas */
+    padding: 15px;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ativa a rolagem vertical apenas em telas móveis */
+  .modal-content {
+    max-height: 70vh; /* Limita a altura do modal em 70% da altura da tela */
+    overflow-y: auto; /* Habilita a rolagem vertical */
   }
 }
 
-/* Responsividade para telas menores que 480px */
 @media (max-width: 480px) {
-  .modal {
-    width: 90%;
+  .card-container {
+    flex-direction: column; /* Cards em coluna */
+    gap: 10px; /* Ajusta o espaço entre os cards */
+    width: 95%;
     padding: 10px;
   }
 
   .card {
-    width: 100%; /* Os cards ocupam 100% da largura em telas muito pequenas */
-    margin-bottom: 10px;
+    width: 100%; /* Ocupa toda a largura disponível */
+    margin: 0 auto; /* Centraliza os cards */
   }
 
-  .closeCadastro {
-    font-size: 20px; /* Reduz o tamanho do botão de fechar */
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+
+  /* Ativa a rolagem vertical apenas em telas móveis */
+  .modal-content {
+    max-height: 70vh; /* Limita a altura do modal em 70% da altura da tela */
+    overflow-y: auto; /* Habilita a rolagem vertical */
   }
 }

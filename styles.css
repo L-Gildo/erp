@@ -36,6 +36,8 @@ body {
 }
 
 .menu-content {
+  position: absolute;
+  top: 40px;
   opacity: 1;
   transition: opacity 0.3s ease;
 }
@@ -71,21 +73,21 @@ body {
 
 .toggle-menu {
   position: absolute;
-  top: 10px;
+  top: 30px;
   right: 15px;
-  background: none;
   border: none;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 5px;
+  background-color: var(--primary-color);
 }
 
 .toggle-menu span {
   display: block;
+  background-color: #fff;
   width: 30px;
   height: 4px;
-  background: #fff;
   border-radius: 2px;
   transition: transform 0.3s ease;
 }
@@ -138,7 +140,7 @@ section {
 /* Botão de sair ============================================================ */
 .logout-container {
   position: absolute;
-  bottom: 15px;
+  bottom: 0px;
   left: 80px;
   text-align: center;
   width: 45px;
@@ -236,5 +238,13 @@ section {
     width: 50%;
     left: 40%; /* Centraliza a mensagem */
     right: auto; /* Remove a margem direita */
+  }
+
+  .logout-container {
+    position: absolute;
+    bottom: 0px;
+    left: 20%;
+    text-align: center;
+    width: 45px;
   }
 }

@@ -5,13 +5,13 @@ if (!isset($_SESSION['usuario_logado'])) {
     // Redireciona para a página de login se o usuário não estiver logado
     header("Location: /erp/pages/login/login.php");
     exit();
-    }
+}
 
 // Configurações do banco de dados
-$host = "localhost"; 
-$user = "root"; 
-$password = ""; 
-$dbname = "sistema_erp"; 
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "sistema_erp";
 
 // Variáveis para mensagens
 $mensagemErro = null;
@@ -27,9 +27,9 @@ if ($conn->connect_error) {
 
 // Verificar se o formulário foi submetido
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = $_POST['nome'];  
+    $nome = $_POST['nome'];
     $login = $_POST['login'];
-    $senha = $_POST['senha'];  
+    $senha = $_POST['senha'];
     $confirmarSenha = $_POST['confirmarSenha'];
     $status = $_POST['status'];
 
@@ -60,13 +60,17 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Usuário</title>
     <link rel="stylesheet" href="/erp/styles/adicionar_usuario.css">
 </head>
+
 <body>
+    <a href="/erp/dashboard.php" class="icon-voltar">
+        <img src="/erp/images/home-button.png" alt="voltar" /></a>
     <div class="form-container">
         <h2>Adicionar Usuário</h2>
 
@@ -117,7 +121,5 @@ $conn->close();
     </footer>
 
 </body>
+
 </html>
-
-
-
