@@ -158,7 +158,7 @@ function gerarCardUsuarios($nome_usuario)
       </div>
       <div class="card-container">
         <?php echo gerarCardUsuarios($nome_usuario); ?>
-        <a href="colaboradores.html" class="card">
+        <a href="/erp/pages/relatorios/adicionar_colaborador.php" class="card">
           <h3>Colaboradores</h3>
           <p>Informações dos colaboradores.</p>
         </a>
