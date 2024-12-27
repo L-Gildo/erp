@@ -228,7 +228,7 @@ $conn->close();
     <img src="/erp/images/home-button.png" title="Voltar ao Dashboard Laços e papéis" alt="voltar" /></a>
 
   <div class="container">
-    <h1>Cadastro de Colaborador</h1>
+    <h1>Cadastro de Colaborador - Laços e Papéis</h1>
 
     <!-- Exibir mensagens, se existirem -->
     <?php if ($mensagemSucesso): ?>

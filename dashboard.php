@@ -151,7 +151,7 @@ function gerarCardColaboradores($nome_usuario)
       <section id="boas-vindas">
         <h2>Bem-vindo ao ERP da Empresa Laços & Papéis!</h2>
         <p class="atualizacao">Última atualização: 19 de dezembro de 2024</p>
-        <p>Confira suas opções abaixo para gerenciar seus processos.</p>
+        <p class="aviso">Confira suas opções abaixo para gerenciar seus processos.</p>
         <div class="quick-links">
           <a href="#cadastro">Cadastro</a>
           <a href="#vendas">Vendas</a>
@@ -178,7 +178,7 @@ function gerarCardColaboradores($nome_usuario)
 
         <?php echo gerarCardColaboradores($nome_usuario); ?>
 
-        <a href="clientes.html" class="card">
+        <a href="/erp/pages/relatorios/adicionar_cliente.php" class="card">
           <h3>Clientes</h3>
           <p>Dados de clientes registrados.</p>
         </a>
