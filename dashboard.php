@@ -47,6 +47,22 @@ if (isset($_GET['logout'])) {
 
 $nome_usuario = $_SESSION['usuario_nome'];
 $data_hora_login = $_SESSION['data_hora_login'];
+
+// Lógica para gerar os cards
+function gerarCardUsuarios($nome_usuario)
+{
+  if ($nome_usuario === "Leonardo Gildo" || $nome_usuario === "Diélifa") {
+    return '<a href="/erp/pages/relatorios/adicionar_usuario.php" class="card">
+                  <h3>Usuários</h3>
+                  <p>Gerencie os usuários do sistema.</p>
+              </a>';
+  } else {
+    return '<div class="card disabled">
+                  <h3>Usuários</h3>
+                  <p>Gerencie os usuários do sistema.</p>
+              </div>';
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -137,11 +153,11 @@ $data_hora_login = $_SESSION['data_hora_login'];
     <div class="modal-content">
       <span id="closeModal" class="closeCadastro">&times;</span>
       <h2>Menu Cadastros</h2>
+      <div id="access-balloon" class="floating-balloon" style="display: none;">
+        <p>Acesso somente ao gestor</p>
+      </div>
       <div class="card-container">
-        <a href="/erp/pages/relatorios/adicionar_usuario.php" class="card">
-          <h3>Usuários</h3>
-          <p>Gerencie os usuários do sistema.</p>
-        </a>
+        <?php echo gerarCardUsuarios($nome_usuario); ?>
         <a href="colaboradores.html" class="card">
           <h3>Colaboradores</h3>
           <p>Informações dos colaboradores.</p>
@@ -225,6 +241,18 @@ $data_hora_login = $_SESSION['data_hora_login'];
       balloonInfo.innerHTML = "Bem-vindo(a), <?php echo $nome_usuario; ?>! Último login: <?php echo $data_hora_login; ?>";
       document.body.appendChild(balloonInfo);
     });
+
+    document.querySelectorAll(".card.disabled").forEach(card => {
+      card.addEventListener("click", () => {
+        const balloon = document.getElementById("access-balloon");
+        balloon.style.display = "block";
+
+        setTimeout(() => {
+          balloon.style.display = "none";
+        }, 3000); // Balão desaparece após 3 segundos
+      });
+    });
+
   </script>
 
 </body>

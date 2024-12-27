@@ -64,6 +64,27 @@
   cursor: pointer;
 }
 
+.card.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.floating-balloon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffcc00;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #000;
+  font-size: 14px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
 /* Estilos para telas menores */
 @media (max-width: 767px) {
   .modal {
