@@ -65,6 +65,7 @@ body {
   display: block;
   padding: 10px;
   border-radius: 5px;
+  font-size: large;
 }
 
 .sidebar a:hover {
@@ -107,9 +108,12 @@ body {
   color: var(--primary-color);
   text-decoration: none;
   font-weight: bold;
+  border: #616161 solid 1px;
+  border-radius: 5px;
+  padding: 5px;
 }
 .quick-links a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .main-content {
@@ -122,7 +126,7 @@ body {
 }
 
 .main-content section .aviso {
-  border-bottom: #333 solid 2px;
+  border-bottom: #616161 solid 2px;
 }
 
 header {
