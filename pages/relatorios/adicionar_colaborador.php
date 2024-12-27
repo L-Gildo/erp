@@ -101,7 +101,7 @@ $conn->close();
 
     .container {
       max-width: 80%;
-      margin: 10px auto;
+      margin: 70px auto;
       padding: 10px;
       background: #fff;
       border-radius: 8px;
@@ -212,10 +212,21 @@ $conn->close();
       padding: 0 10px;
       font-weight: bold;
     }
+
+    .icon-voltar img {
+      width: 50px;
+      position: absolute;
+      right: 30px;
+      top: 30px;
+    }
   </style>
 </head>
 
 <body>
+
+  <a href="/erp/dashboard.php" class="icon-voltar">
+    <img src="/erp/images/home-button.png" title="Voltar ao Dashboard Laços e papéis" alt="voltar" /></a>
+
   <div class="container">
     <h1>Cadastro de Colaborador</h1>
 

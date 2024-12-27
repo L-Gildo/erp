@@ -48,7 +48,8 @@ if (isset($_GET['logout'])) {
 $nome_usuario = $_SESSION['usuario_nome'];
 $data_hora_login = $_SESSION['data_hora_login'];
 
-// Lógica para gerar os cards
+// Lógica para gerar os cards restritos
+// Incluir Usuários
 function gerarCardUsuarios($nome_usuario)
 {
   if ($nome_usuario === "Leonardo Gildo" || $nome_usuario === "Diélifa") {
@@ -60,6 +61,22 @@ function gerarCardUsuarios($nome_usuario)
     return '<div class="card disabled">
                   <h3>Usuários</h3>
                   <p>Gerencie os usuários do sistema.</p>
+              </div>';
+  }
+}
+
+// Incluir Colaboradores
+function gerarCardColaboradores($nome_usuario)
+{
+  if ($nome_usuario === "Leonardo Gildo" || $nome_usuario === "Diélifa") {
+    return '<a href="/erp/pages/relatorios/adicionar_colaborador.php" class="card">
+                  <h3>Colaboradores</h3>
+                  <p>Gerencie seus colaboradores.</p>
+              </a>';
+  } else {
+    return '<div class="card disabled">
+                  <h3>Colaboradores</h3>
+                  <p>Gerencie seus colaboradores.</p>
               </div>';
   }
 }
@@ -158,46 +175,54 @@ function gerarCardUsuarios($nome_usuario)
       </div>
       <div class="card-container">
         <?php echo gerarCardUsuarios($nome_usuario); ?>
-        <a href="/erp/pages/relatorios/adicionar_colaborador.php" class="card">
-          <h3>Colaboradores</h3>
-          <p>Informações dos colaboradores.</p>
-        </a>
+
+        <?php echo gerarCardColaboradores($nome_usuario); ?>
+
         <a href="clientes.html" class="card">
           <h3>Clientes</h3>
           <p>Dados de clientes registrados.</p>
         </a>
+
         <a href="produtos.html" class="card">
           <h3>Produtos</h3>
           <p>Gerencie os produtos cadastrados.</p>
         </a>
+
         <a href="vendedores.html" class="card">
           <h3>Vendedores</h3>
           <p>Cadastre os vendedores da sua empresa.</p>
         </a>
+
         <a href="estoque.html" class="card">
           <h3>Estoque</h3>
           <p>Controle o estoque de produtos.</p>
         </a>
+
         <a href="fornecedores.html" class="card">
           <h3>Fornecedores</h3>
           <p>Gerencie seus fornecedores.</p>
         </a>
+
         <a href="equipamentos.html" class="card">
           <h3>Equipamentos</h3>
           <p>Cadastre e gerencie os equipamentos.</p>
         </a>
+
         <a href="servicos.html" class="card">
           <h3>Serviços</h3>
           <p>Gerencie os serviços oferecidos.</p>
         </a>
+
         <a href="festa.html" class="card">
           <h3>Festa</h3>
           <p>Organize os eventos e festas.</p>
         </a>
+
         <a href="festa.html" class="card">
           <h3>Contratos</h3>
           <p>Gerencie suas aplicações e contratos.</p>
         </a>
+
         <a href="festa.html" class="card">
           <h3>Compras</h3>
           <p>Controle seu estoque e gerencie o material.</p>

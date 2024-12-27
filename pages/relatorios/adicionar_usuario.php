@@ -70,7 +70,7 @@ $conn->close();
 
 <body>
     <a href="/erp/dashboard.php" class="icon-voltar">
-        <img src="/erp/images/home-button.png" alt="voltar" /></a>
+        <img src="/erp/images/home-button.png" title="Voltar ao Dashboard Laços e Pepéis" alt="voltar" /></a>
     <div class="form-container">
         <h2>Adicionar Usuário</h2>
 
