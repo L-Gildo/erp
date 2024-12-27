@@ -57,7 +57,7 @@ $data_hora_login = $_SESSION['data_hora_login'];
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ERP Laços & Papéis</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="styles/quadroCadastro.css" />
+  <link rel="stylesheet" href="styles/modal.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
@@ -83,10 +83,10 @@ $data_hora_login = $_SESSION['data_hora_login'];
         <nav>
           <ul>
             <li>
-              <a href="#cadastro"><i class="fa fa-user"></i> Cadastro</a>
+              <a href="#cadastro"><i class="fa fa-user"></i> Cadastros</a>
             </li>
             <li>
-              <a href="#consulta"><i class="fa fa-search"></i> Consulta</a>
+              <a href="#consulta"><i class="fa fa-search"></i> Consultas</a>
             </li>
             <li>
               <a href="#vendas"><i class="fa fa-shopping-cart"></i> Vendas</a>
@@ -117,7 +117,7 @@ $data_hora_login = $_SESSION['data_hora_login'];
       </header>
       <section id="boas-vindas">
         <h2>Bem-vindo ao ERP da Empresa Laços & Papéis!</h2>
-        <p>Última atualização: 19 de dezembro de 2024</p>
+        <p class="atualizacao">Última atualização: 19 de dezembro de 2024</p>
         <p>Confira suas opções abaixo para gerenciar seus processos.</p>
         <div class="quick-links">
           <a href="#cadastro">Cadastro</a>
@@ -132,22 +132,15 @@ $data_hora_login = $_SESSION['data_hora_login'];
   <script src="scripts/scriptCadastro.js"></script>
   <!-- Scripts -->
 
-  <div id="notification-panel" class="notification-panel">
-    <p>
-      <strong>Atenção!</strong> O sistema foi atualizado para a versão 2.1.
-    </p>
-    <button id="close-notification">X</button>
-  </div>
-
-  <!-- Quadro Flutuante com os Subitens do Menu Cadastro -->
+  <!-- Quadro Flutuante com os Subitens do Menu Cadastro - CSS modal -->
   <div id="cadastroModal" class="modal" style="display: none;">
     <div class="modal-content">
       <span id="closeModal" class="closeCadastro">&times;</span>
-      <h2>Menu Cadastro</h2>
+      <h2>Menu Cadastros</h2>
       <div class="card-container">
         <a href="/erp/pages/relatorios/adicionar_usuario.php" class="card">
           <h3>Usuários</h3>
-          <p>Gerencie seus usuários.</p>
+          <p>Gerencie os usuários do sistema.</p>
         </a>
         <a href="colaboradores.html" class="card">
           <h3>Colaboradores</h3>
