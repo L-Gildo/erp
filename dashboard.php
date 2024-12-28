@@ -218,14 +218,19 @@ function gerarCardColaboradores($nome_usuario)
           <p>Organize os eventos e festas.</p>
         </a>
 
-        <a href="festa.html" class="card">
+        <a href="contratos.html" class="card">
           <h3>Contratos</h3>
           <p>Gerencie suas aplicações e contratos.</p>
         </a>
 
-        <a href="festa.html" class="card">
+        <a href="compras.html" class="card">
           <h3>Compras</h3>
           <p>Controle seu estoque e gerencie o material.</p>
+        </a>
+
+        <a href="/erp/pages/relatorios/meu_ponto.php" class="card">
+          <h3>Meu ponto</h3>
+          <p>Veja aqui os dias e horários logados.</p>
         </a>
       </div>
     </div>
