@@ -173,6 +173,7 @@ $conn->close();
     }
 
     @media (min-width: 768px) {
+
       .form-group label {
         flex: 1 1 120px;
         margin-bottom: 0;
@@ -273,8 +274,18 @@ $conn->close();
             <option value="divorciado">Divorciado</option>
             <option value="viúvo">Viúvo</option>
           </select>
+
+          <!-- Adicionando campos de telefone -->
+          <label for="contact1">Contato 1 (Telefone):</label>
+          <input type="tel" id="contact1" name="contact1" placeholder="Ex: (11) 91234-5678"
+            pattern="\(\d{2}\) \d{5}-\d{4}" />
+
+          <label for="contact2">Contato 2 (Telefone):</label>
+          <input type="tel" id="contact2" name="contact2" placeholder="Ex: (11) 98765-4321"
+            pattern="\(\d{2}\) \d{5}-\d{4}" />
         </div>
       </fieldset>
+
 
       <fieldset>
         <legend>Endereço</legend>

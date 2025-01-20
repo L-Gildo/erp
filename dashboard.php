@@ -183,7 +183,7 @@ function gerarCardColaboradores($nome_usuario)
           <p>Dados de clientes registrados.</p>
         </a>
 
-        <a href="produtos.html" class="card">
+        <a href="/erp/pages/relatorios/cadastrar_produtos.php" class="card">
           <h3>Produtos</h3>
           <p>Gerencie os produtos cadastrados.</p>
         </a>

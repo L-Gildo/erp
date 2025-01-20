@@ -166,10 +166,8 @@ $conn->close();
 
             .footer {
                   text-align: center;
-                  padding: 10px 0;
                   background-color: #f1f1f1;
                   color: #333;
-                  position: fixed;
                   bottom: 0;
                   width: 100%;
                   font-size: 12px;
