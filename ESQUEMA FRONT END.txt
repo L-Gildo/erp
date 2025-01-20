@@ -7,16 +7,17 @@ Esquema Geral | Sistema Gerencial - Front End
 
 
 
-Cadastro			|	Vendas			|	Relatórios				|	Consultas			|	Eventos				|	Sistema	
-	Usuários ✔		|		Nova Venda		|		Rel.Vendas			|		Financeiro		|		Agendar Eventos		|		Histórico de Acesso
-	Colaboradores	|		Consultar	Venda	|		Rel. Estoque		|		Produto		|		Consultar Evento		|		Diário de bordo
-	Produtos		|					|		Fechamento caixa		|		RH			|		Modificar Evento		|		Sobre nós
-	Vendedores		|					|		Rel. Eventos		|		Cliente		|						|
-	Estoque		|					|						|		Fornecedor		|						|
-	Clientes		|					|						|		Equipamento	|						|
-	Fornecedores	|					|						|		Serviço		|						|
-	Equipamentos	|					|						|		Colaborador	|						|
-	Serviços		|					|						|		Estoque		|						|
-	Festa			|					|						|		Festa			|						|
+Cadastro				Vendas				Relatórios					Consultas				Eventos					Sistema	
+	Usuários ✔B			Nova Venda				Rel.Vendas					Financeiro				Agendar Eventos				Histórico de Acesso
+	Colaboradores ✔B		Consultar	Venda			Rel. Estoque				Produto				Consultar Evento				Diário de bordo
+	Produtos ✔								Fechamento caixa				RH					Modificar Evento				Sobre nós
+	Vendedores	✔								Rel. Eventos				Cliente								
+	Estoque ✔															Fornecedor								
+	Clientes ✔B														Equipamento							
+	Fornecedores ✔														Serviço							
+	Equipamentos ✔														Colaborador							
+	Serviços ✔														Estoque								
+	Festa	 ✔															Festa									
 	Compras															Compras
 	Contratos
+	Meu ponto ✔B

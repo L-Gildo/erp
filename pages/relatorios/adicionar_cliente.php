@@ -312,7 +312,7 @@ $conn->close();
                   </fieldset>
 
                   <div class="button-group">
-                        <button type="submit" class="btn-submit">Adicionar Usuário</button>
+                        <button type="submit" class="btn-submit">Cadastrar Cliente</button>
                         <button type="reset">Limpar</button>
                   </div>
 

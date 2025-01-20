@@ -4,13 +4,13 @@ include('db.php'); // Inclui a conexão com o banco de dados
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['usuario_logado'])) {
-    // Redireciona para a página de login se o usuário não estiver logado
     header("Location: /erp/pages/login/login.php");
     exit();
 }
 
-// Verifica se há filtro por data e por usuário
-$filtroData = isset($_POST['data_filtro']) ? $_POST['data_filtro'] : null;
+// Verifica se há filtro por intervalo de datas e por usuário
+$dataInicio = isset($_POST['data_inicio']) ? $_POST['data_inicio'] : null;
+$dataFim = isset($_POST['data_fim']) ? $_POST['data_fim'] : null;
 $filtroUsuario = isset($_POST['usuario_filtro']) ? $_POST['usuario_filtro'] : null;
 
 // Consulta SQL inicial
@@ -20,17 +20,27 @@ $sql = "SELECT u.nome, l.tipo_acao, l.data_hora
 
 // Adiciona filtros, se aplicáveis
 $parametros = [];
-if ($filtroData) {
-    $sql .= " WHERE DATE(l.data_hora) = ?";
-    $parametros[] = $filtroData;
+$condicoes = [];
+
+if ($dataInicio && $dataFim) {
+    $condicoes[] = "DATE(l.data_hora) BETWEEN ? AND ?";
+    $parametros[] = $dataInicio;
+    $parametros[] = $dataFim;
+} elseif ($dataInicio) {
+    $condicoes[] = "DATE(l.data_hora) >= ?";
+    $parametros[] = $dataInicio;
+} elseif ($dataFim) {
+    $condicoes[] = "DATE(l.data_hora) <= ?";
+    $parametros[] = $dataFim;
 }
+
 if ($filtroUsuario) {
-    if (count($parametros) > 0) {
-        $sql .= " AND l.usuario_id = ?";
-    } else {
-        $sql .= " WHERE l.usuario_id = ?";
-    }
+    $condicoes[] = "l.usuario_id = ?";
     $parametros[] = $filtroUsuario;
+}
+
+if (!empty($condicoes)) {
+    $sql .= " WHERE " . implode(" AND ", $condicoes);
 }
 
 // Ordena os resultados
@@ -39,7 +49,6 @@ $sql .= " ORDER BY l.data_hora DESC";
 // Prepara e executa a consulta
 $stmt = $conn->prepare($sql);
 if (!empty($parametros)) {
-    // Bind dos parâmetros (data e/ou usuário)
     $stmt->bind_param(str_repeat('s', count($parametros)), ...$parametros);
 }
 $stmt->execute();
@@ -72,8 +81,11 @@ $resultUsuarios = $conn->query($sqlUsuarios);
 
         <!-- Formulário de Filtro -->
         <form method="post" action="">
-            <label for="data_filtro">Filtrar por data:</label>
-            <input type="date" id="data_filtro" name="data_filtro" value="<?php echo htmlspecialchars($filtroData); ?>">
+            <label for="data_inicio">Data inicial:</label>
+            <input type="date" id="data_inicio" name="data_inicio" value="<?php echo htmlspecialchars($dataInicio); ?>">
+
+            <label for="data_fim">Data final:</label>
+            <input type="date" id="data_fim" name="data_fim" value="<?php echo htmlspecialchars($dataFim); ?>">
 
             <label for="usuario_filtro">Filtrar por usuário:</label>
             <select id="usuario_filtro" name="usuario_filtro">
@@ -87,7 +99,6 @@ $resultUsuarios = $conn->query($sqlUsuarios);
 
             <button type="submit">Filtrar</button>
         </form>
-
 
         <?php if ($result->num_rows > 0): ?>
             <table>
