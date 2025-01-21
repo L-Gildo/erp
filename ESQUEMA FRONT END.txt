@@ -10,7 +10,7 @@ Esquema Geral | Sistema Gerencial - Front End
 Cadastro				Vendas				Relatórios					Consultas				Eventos					Sistema	
 	Usuários ✔B			Nova Venda				Rel.Vendas					Financeiro				Agendar Eventos				Histórico de Acesso
 	Colaboradores ✔B		Consultar	Venda			Rel. Estoque				Produto				Consultar Evento				Diário de bordo
-	Produtos ✔								Fechamento caixa				RH					Modificar Evento				Sobre nós
+	Produtos ✔B								Fechamento caixa				RH					Modificar Evento				Sobre nós
 	Vendedores	✔								Rel. Eventos				Cliente								
 	Estoque ✔															Fornecedor								
 	Clientes ✔B														Equipamento							
@@ -21,3 +21,6 @@ Cadastro				Vendas				Relatórios					Consultas				Eventos					Sistema
 	Compras															Compras
 	Contratos
 	Meu ponto ✔B
+	
+	PARA LOGAR COM BACKEND LOCAL
+		http://<ip_da_máquina>/erp/login/login.php

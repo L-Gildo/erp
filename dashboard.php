@@ -80,6 +80,22 @@ function gerarCardColaboradores($nome_usuario)
               </div>';
   }
 }
+
+// Incluir Vendedores
+function gerarCardVendedores($nome_usuario)
+{
+  if ($nome_usuario === "Leonardo Gildo" || $nome_usuario === "Diélifa") {
+    return '<a href="/erp/pages/relatorios/cadastrar_vendedor.php" class="card">
+                  <h3>Vendedores</h3>
+                  <p>Cadastre os vendedores da sua empresa.</p>
+              </a>';
+  } else {
+    return '<div class="card disabled">
+                  <h3>Vendedores</h3>
+                  <p>Cadastre os vendedores da sua empresa.</p>
+              </div>';
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -188,10 +204,7 @@ function gerarCardColaboradores($nome_usuario)
           <p>Gerencie os produtos cadastrados.</p>
         </a>
 
-        <a href="vendedores.html" class="card">
-          <h3>Vendedores</h3>
-          <p>Cadastre os vendedores da sua empresa.</p>
-        </a>
+        <?php echo gerarCardVendedores($nome_usuario); ?>
 
         <a href="estoque.html" class="card">
           <h3>Estoque</h3>
