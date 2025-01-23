@@ -11,8 +11,8 @@ Cadastro				Vendas				Relatórios					Consultas				Eventos					Sistema
 	Usuários ✔B			Nova Venda				Rel.Vendas					Financeiro				Agendar Eventos				Histórico de Acesso
 	Colaboradores ✔B		Consultar	Venda			Rel. Estoque				Produto				Consultar Evento				Diário de bordo
 	Produtos ✔B								Fechamento caixa				RH					Modificar Evento				Sobre nós
-	Vendedores	✔								Rel. Eventos				Cliente								
-	Estoque ✔															Fornecedor								
+	Vendedores	✔B								Rel. Eventos				Cliente								
+	Estoque ✔	B														Fornecedor								
 	Clientes ✔B														Equipamento							
 	Fornecedores ✔														Serviço							
 	Equipamentos ✔														Colaborador							

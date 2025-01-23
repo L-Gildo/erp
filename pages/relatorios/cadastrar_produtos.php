@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $cor = $_POST['productColor'];
   $peso = $_POST['productWeight'];
   $preco = $_POST['productPrice'];
-  $estoque = $_POST['productStock'];
+  $quantidade_estoque = $_POST['productStock'];
 
   // Inserir o produto no banco de dados
   $sql = "INSERT INTO produtos 
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cor,
     $peso,
     $preco,
-    $estoque
+    $quantidade_estoque,
   );
 
   if ($stmt->execute()) {

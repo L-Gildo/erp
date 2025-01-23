@@ -155,6 +155,25 @@ $conn->close();
       background-color: #3d9241;
     }
 
+    .success-message {
+      color: green;
+      background-color: #e6ffe6;
+      padding: 10px;
+      border: 1px solid green;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+
+    .error-message {
+      color: red;
+      background-color: #ffe6e6;
+      padding: 10px;
+      border: 1px solid red;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
     .footer {
       text-align: center;
       padding: 10px 0;

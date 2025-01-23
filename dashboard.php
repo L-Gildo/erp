@@ -206,7 +206,7 @@ function gerarCardVendedores($nome_usuario)
 
         <?php echo gerarCardVendedores($nome_usuario); ?>
 
-        <a href="estoque.html" class="card">
+        <a href="/erp/pages/relatorios/atualizar_estoque.php" class="card">
           <h3>Estoque</h3>
           <p>Controle o estoque de produtos.</p>
         </a>
