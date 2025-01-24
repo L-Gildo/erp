@@ -14,10 +14,10 @@ Cadastro				Vendas				Relatórios					Consultas				Eventos					Sistema
 	Vendedores	✔B								Rel. Eventos				Cliente								
 	Estoque ✔	B														Fornecedor								
 	Clientes ✔B														Equipamento							
-	Fornecedores ✔														Serviço							
-	Equipamentos ✔														Colaborador							
-	Serviços ✔														Estoque								
-	Festa	 ✔															Festa									
+	Fornecedores ✔B													Serviço							
+	Equipamentos ✔B													Colaborador							
+	Serviços ✔B														Estoque								
+	Festa	 ✔B															Festa									
 	Compras															Compras
 	Contratos
 	Meu ponto ✔B

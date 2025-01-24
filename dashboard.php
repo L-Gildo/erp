@@ -211,22 +211,22 @@ function gerarCardVendedores($nome_usuario)
           <p>Controle o estoque de produtos.</p>
         </a>
 
-        <a href="fornecedores.html" class="card">
+        <a href="/erp/pages/relatorios/cadastrar_fornecedor.php" class="card">
           <h3>Fornecedores</h3>
           <p>Gerencie seus fornecedores.</p>
         </a>
 
-        <a href="equipamentos.html" class="card">
+        <a href="/erp/pages/relatorios/cadastrar_equipamento.php" class="card">
           <h3>Equipamentos</h3>
           <p>Cadastre e gerencie os equipamentos.</p>
         </a>
 
-        <a href="servicos.html" class="card">
+        <a href="/erp/pages/relatorios/cadastrar_servicos.php" class="card">
           <h3>Serviços</h3>
           <p>Gerencie os serviços oferecidos.</p>
         </a>
 
-        <a href="festa.html" class="card">
+        <a href="/erp/pages/relatorios/cadastrar_evento.php" class="card">
           <h3>Festa</h3>
           <p>Organize os eventos e festas.</p>
         </a>
