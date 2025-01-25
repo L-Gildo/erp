@@ -48,8 +48,8 @@ if (isset($_GET['logout'])) {
 $nome_usuario = $_SESSION['usuario_nome'];
 $data_hora_login = $_SESSION['data_hora_login'];
 
-// Lógica para gerar os cards restritos
-// Incluir Usuários
+// LÓGICA PARA GERAR OS CARDS RESTRITOS
+// (CARD RESTRITO) Incluir Usuários
 function gerarCardUsuarios($nome_usuario)
 {
   if ($nome_usuario === "Leonardo Gildo" || $nome_usuario === "Diélifa") {
@@ -65,7 +65,7 @@ function gerarCardUsuarios($nome_usuario)
   }
 }
 
-// Incluir Colaboradores
+// (CARD RESTRITO) Incluir Colaboradores
 function gerarCardColaboradores($nome_usuario)
 {
   if ($nome_usuario === "Leonardo Gildo" || $nome_usuario === "Diélifa") {
@@ -81,7 +81,7 @@ function gerarCardColaboradores($nome_usuario)
   }
 }
 
-// Incluir Vendedores
+// (CARD RESTRITO) Incluir Vendedores
 function gerarCardVendedores($nome_usuario)
 {
   if ($nome_usuario === "Leonardo Gildo" || $nome_usuario === "Diélifa") {
@@ -93,6 +93,22 @@ function gerarCardVendedores($nome_usuario)
     return '<div class="card disabled">
                   <h3>Vendedores</h3>
                   <p>Cadastre os vendedores da sua empresa.</p>
+              </div>';
+  }
+}
+
+// (CARD RESTRITO) Cadastrar contratos
+function gerarCardContratos($nome_usuario)
+{
+  if ($nome_usuario === "Leonardo Gildo" || $nome_usuario === "Diélifa") {
+    return '<a href="/erp/pages/relatorios/cadastrar_contratos.php" class="card">
+                  <h3>Contratos</h3>
+                  <p>Gerencie suas aplicações e contratos.</p>
+              </a>';
+  } else {
+    return '<div class="card disabled">
+                  <h3>Contratos</h3>
+                  <p>Gerencie suas aplicações e contratos.</p>
               </div>';
   }
 }
@@ -231,12 +247,9 @@ function gerarCardVendedores($nome_usuario)
           <p>Organize os eventos e festas.</p>
         </a>
 
-        <a href="contratos.html" class="card">
-          <h3>Contratos</h3>
-          <p>Gerencie suas aplicações e contratos.</p>
-        </a>
+        <?php echo gerarCardContratos($nome_usuario); ?>
 
-        <a href="compras.html" class="card">
+        <a href="/erp/pages/relatorios/cadastrar_compras.php" class="card">
           <h3>Compras</h3>
           <p>Controle seu estoque e gerencie o material.</p>
         </a>
